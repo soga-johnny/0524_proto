@@ -15,17 +15,7 @@
                     var marker = this.el;
                     this.vid = document.querySelector("#vid");
 
-                    marker.addEventListener('markerFound', function () {
-                        this.toggle = true;
-                        this.vid.play();
-                    }.bind(this));
-
-                    marker.addEventListener('markerLost', function () {
-                        this.toggle = false;
-                        this.vid.pause();
-                    }.bind(this));
-                    
-                    marker.addEventListener('click', function () {
+                  marker.addEventListener('click', function () {
                         window.location.href = 'https://sogajohnny.studio.site/';
                     }.bind(this));
                 },
