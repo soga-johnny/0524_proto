@@ -9,6 +9,29 @@
     <!-- AR.js を読み込む -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <title>任意のページタイトル</title>
+    <script>
+            AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    var marker = this.el;
+                    this.vid = document.querySelector("#vid");
+
+                    marker.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                    }.bind(this));
+
+                    marker.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                    
+                    marker.addEventListener('click', function () {
+                        window.location.href = 'https://sogajohnny.studio.site/';
+                    }.bind(this));
+                },
+            });
+        </script>
+    
   </head>
   <body style="margin: 0; overflow: hidden">
     <a-scene embedded arjs vr-mode-ui="enabled: false;">
